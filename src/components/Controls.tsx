@@ -31,58 +31,20 @@ export function Controls({ file, base64Data }: ControlsProps) {
 
   return (
     <div className="controls" style={{ marginBottom: '1rem' }}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '1rem',
-          backgroundColor: '#f8f9fa',
-          borderRadius: '4px',
-          border: '1px solid #ddd',
-        }}
-      >
-        <div>
-          <strong>File Info:</strong>
-          <div style={{ marginTop: '0.5rem', fontSize: '14px', color: '#666' }}>
+      <div className="controls-container">
+        <div className="controls-info">
+          <div className="controls-info-title">File Info:</div>
+          <div className="controls-info-details">
             <div>Type: {getFileTypeName(file.type, file.mimeType)}</div>
             <div>MIME: {file.mimeType}</div>
             <div>Size: {formatFileSize(file.size)}</div>
           </div>
         </div>
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
-          <button
-            onClick={handleCopy}
-            style={{
-              padding: '0.75rem 1.5rem',
-              backgroundColor: '#6c757d',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-            }}
-          >
+        <div className="controls-buttons">
+          <button onClick={handleCopy} className="btn-copy">
             📋 Copy Base64
           </button>
-          <button
-            onClick={handleDownload}
-            style={{
-              padding: '0.75rem 1.5rem',
-              backgroundColor: '#28a745',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-            }}
-          >
+          <button onClick={handleDownload} className="btn-download">
             ⬇ Download
           </button>
         </div>

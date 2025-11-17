@@ -66,20 +66,10 @@ export function InputArea({ onBase64Input, onClear }: InputAreaProps) {
 
   return (
     <div className="input-area">
-      <div style={{ marginBottom: '1rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem 0' }}>Input Base64 Data</h3>
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: '#28a745',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-            }}
-          >
+      <div className="input-section-header">
+        <h3 className="input-section-title">Input Base64 Data</h3>
+        <div className="input-buttons">
+          <button onClick={() => fileInputRef.current?.click()} className="btn-upload">
             Upload File
           </button>
           <input
@@ -95,61 +85,21 @@ export function InputArea({ onBase64Input, onClear }: InputAreaProps) {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        style={{
-          border: isDragging ? '2px dashed #007bff' : '2px dashed #ddd',
-          borderRadius: '4px',
-          padding: '1rem',
-          backgroundColor: isDragging ? '#f0f8ff' : 'white',
-          marginBottom: '1rem',
-        }}
+        className={isDragging ? 'drop-zone dragging' : 'drop-zone not-dragging'}
       >
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Paste base64 string here or drag and drop a file...&#10;&#10;Supports:&#10;- Plain base64 string&#10;- Data URI (data:image/png;base64,...)"
-          style={{
-            width: '100%',
-            minHeight: '150px',
-            padding: '0.75rem',
-            fontSize: '14px',
-            fontFamily: 'monospace',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            resize: 'vertical',
-            boxSizing: 'border-box',
-          }}
+          className="input-textarea"
         />
       </div>
 
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
-        <button
-          onClick={handleSubmit}
-          disabled={!input.trim()}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: input.trim() ? '#007bff' : '#ccc',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: input.trim() ? 'pointer' : 'not-allowed',
-            fontSize: '16px',
-            fontWeight: 'bold',
-          }}
-        >
+      <div className="input-actions">
+        <button onClick={handleSubmit} disabled={!input.trim()} className="btn-view">
           View
         </button>
-        <button
-          onClick={handleClear}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: '#dc3545',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '16px',
-          }}
-        >
+        <button onClick={handleClear} className="btn-clear">
           Clear
         </button>
       </div>
