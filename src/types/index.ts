@@ -7,6 +7,7 @@ export type FileType =
   | 'json'
   | 'xml'
   | 'csv'
+  | 'excel'
   | 'html'
   | 'code'
   | 'markdown'
@@ -67,6 +68,8 @@ export const SUPPORTED_MIME_TYPES: Record<string, FileType> = {
   'application/xml': 'xml',
   'text/xml': 'xml',
   'text/csv': 'csv',
+  'application/vnd.ms-excel': 'excel',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'excel',
   'text/html': 'html',
   'application/xhtml+xml': 'html',
 
@@ -112,6 +115,8 @@ export const EXTENSION_TO_MIME: Record<string, string> = {
   'json': 'application/json',
   'xml': 'application/xml',
   'csv': 'text/csv',
+  'xls': 'application/vnd.ms-excel',
+  'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   'html': 'text/html',
   'htm': 'text/html',
 

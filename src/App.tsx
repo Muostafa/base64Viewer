@@ -84,7 +84,7 @@ function App() {
                 </div>
                 <div className="type-category">
                   <h4>Data & Code</h4>
-                  <p>JSON, XML, CSV, HTML<br/>JavaScript, CSS, Python, Java, C/C++</p>
+                  <p>JSON, XML, CSV, Excel (XLS/XLSX), HTML<br/>JavaScript, CSS, Python, Java, C/C++</p>
                 </div>
               </div>
             </div>
