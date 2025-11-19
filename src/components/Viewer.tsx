@@ -7,6 +7,7 @@ import { VideoViewer } from './viewers/VideoViewer';
 import { CodeViewer } from './viewers/CodeViewer';
 import { JSONViewer } from './viewers/JSONViewer';
 import { CSVViewer } from './viewers/CSVViewer';
+import { ExcelViewer } from './viewers/ExcelViewer';
 import { HTMLViewer } from './viewers/HTMLViewer';
 
 interface ViewerProps {
@@ -38,6 +39,9 @@ export function Viewer({ file, base64Data }: ViewerProps) {
 
       case 'csv':
         return <CSVViewer file={file} base64Data={base64Data} />;
+
+      case 'excel':
+        return <ExcelViewer file={file} base64Data={base64Data} />;
 
       case 'html':
         return <HTMLViewer file={file} base64Data={base64Data} />;
